@@ -1,0 +1,33 @@
+{
+  "name": "apiblueprint",
+  "displayName": "APIBlueprint",
+  "description": "Generate TypeScript fetch client from OpenAPI YAML/JSON",
+  "version": "1.0.0",
+  "engines": { "vscode": "^1.90.0" },
+  "activationEvents": [],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "apiblueprint.generate",
+        "title": "APIBlueprint: Generate TypeScript Client"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "apiblueprint.generate",
+          "when": "resourceExtname == .yml || resourceExtname == .yaml || resourceExtname == .json"
+        }
+      ]
+    }
+  },
+  "scripts": { "build": "tsc -p tsconfig.json", "package": "vsce package" },
+  "dependencies": { "js-yaml": "^4.1.0" },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^20.14.0",
+    "@types/vscode": "^1.90.0",
+    "typescript": "^5.4.5"
+  }
+}
